@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- CloudPlane mark: blue cloud with white plane icon -->
+
+  <!-- Cloud shape -->
+  <path
+    d="M50 40a8 8 0 0 0-1.17-16.94A11 11 0 0 0 28.5 19a10 10 0 0 0-13.37 9.43A8.5 8.5 0 0 0 16 45h26a8 8 0 0 0 8-5z"
+    fill="#1976D2"
+  />
+
+  <!-- Plane pointing upper-right (nose NE, tail SW)
+       Center: (35, 30). Drawn in local coords, no transform needed.
+       Fuselage: thin 4-sided shape along NE-SW diagonal
+       Wings: swept back (NW and SE)
+       Tail: small delta at SW end
+  -->
+  <!-- Fuselage -->
+  <path d="M38 22 L42 26 L30 38 L26 34 Z" fill="white"/>
+  <!-- Right wing (upper-right side, sweeps NW from mid-fuselage) -->
+  <path d="M40 24 L47 18 L41 28 Z" fill="white"/>
+  <!-- Left wing (lower-left side, sweeps SE from mid-fuselage) -->
+  <path d="M29 36 L22 42 L28 32 Z" fill="white"/>
+  <!-- Tail fin (SW end of fuselage) -->
+  <path d="M27 35 L22 38 L28 38 Z" fill="white"/>
+</svg>

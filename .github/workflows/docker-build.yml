@@ -1,0 +1,57 @@
+name: Build & Push Docker Images
+on:
+  push:
+    branches: [preview]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - app: web
+            dockerfile: apps/web/Dockerfile.web
+            image: ghcr.io/cloudface-tech/cloudplane-web
+          - app: admin
+            dockerfile: apps/admin/Dockerfile.admin
+            image: ghcr.io/cloudface-tech/cloudplane-admin
+          - app: space
+            dockerfile: apps/space/Dockerfile.space
+            image: ghcr.io/cloudface-tech/cloudplane-space
+          - app: api
+            dockerfile: apps/api/Dockerfile.api
+            image: ghcr.io/cloudface-tech/cloudplane-api
+            context: apps/api
+          - app: live
+            dockerfile: apps/live/Dockerfile.live
+            image: ghcr.io/cloudface-tech/cloudplane-live
+          - app: proxy
+            dockerfile: apps/proxy/Dockerfile.ce
+            image: ghcr.io/cloudface-tech/cloudplane-proxy
+            context: apps/proxy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ${{ matrix.image }}
+          tags: |
+            type=raw,value=latest
+            type=sha
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context || '.' }}
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

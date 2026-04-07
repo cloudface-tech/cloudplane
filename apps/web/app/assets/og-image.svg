@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Open Graph image — 1200x630 -->
+
+  <!-- Background: blue gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0D47A1"/>
+      <stop offset="100%" stop-color="#1976D2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle background pattern: faint grid -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="0.4" opacity="0.08"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Centered logo group -->
+  <!-- Icon: 160x160 (scale 64x64 * 2.5), centered horizontally, positioned at y=160 -->
+  <g transform="translate(520, 140) scale(2.5)">
+    <!-- Cloud shape -->
+    <path
+      d="M50 40a8 8 0 0 0-1.17-16.94A11 11 0 0 0 28.5 19a10 10 0 0 0-13.37 9.43A8.5 8.5 0 0 0 16 45h26a8 8 0 0 0 8-5z"
+      fill="white"
+    />
+    <!-- Plane fuselage -->
+    <path d="M38 22 L42 26 L30 38 L26 34 Z" fill="white" opacity="0.45"/>
+    <!-- Right wing -->
+    <path d="M40 24 L47 18 L41 28 Z" fill="white" opacity="0.45"/>
+    <!-- Left wing -->
+    <path d="M29 36 L22 42 L28 32 Z" fill="white" opacity="0.45"/>
+    <!-- Tail fin -->
+    <path d="M27 35 L22 38 L28 38 Z" fill="white" opacity="0.45"/>
+  </g>
+
+  <!-- "CloudPlane" wordmark -->
+  <text
+    x="600"
+    y="420"
+    text-anchor="middle"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="72"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="white"
+  >CloudPlane</text>
+
+  <!-- Tagline -->
+  <text
+    x="600"
+    y="490"
+    text-anchor="middle"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="28"
+    font-weight="400"
+    letter-spacing="0.5"
+    fill="white"
+    opacity="0.8"
+  >Open-source project management</text>
+</svg>
